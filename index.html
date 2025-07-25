@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎂 Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://www.shutterstock.com/shutterstock/videos/3445382715/thumb/1.jpg?ip=x480');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+
+    .mensaje {
+      position: absolute;
+      font-size: 1.2rem;
+      color: rgb(252, 74, 172);
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+      animation: caer 1.5s linear forwards;
+      text-shadow: 0 0 5px rgb(243, 90, 192);
+      pointer-events: none;
+    }
+
+    @keyframes caer {
+      0% {
+        top: -50px;
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        top: calc(100vh - 100px);
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .confeti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      opacity: 0.8;
+      animation: confetiCaer 3s linear forwards;
+    }
+
+    @keyframes confetiCaer {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <!-- 🎶 Música -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_03e1b5a4a3.mp3?filename=happy-birthday-to-you-piano-version-13976.mp3" type="audio/mpeg">
+    Tu navegador no puede reproducir música.
+  </audio>
+
+  <script>
+    const mensajes = [
+    "¡Felicidades❤️!",
+    "Feliz cumple años Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Felicidades❤️!",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Felicidades Erik❤️",
+      "¡Happy Birthday❤️!",
+      "¡Felicidades❤️!",
+      "¡Happy Birthday❤️!",
+      "Happy bday❤️",
+      "Feliz 18❤️",
+      "¡Felicidades❤️!",
+      "¡Happy Birthday❤️!",
+      "¡Happy Birthday❤️!",
+      "Happy bday❤️",
+      "¡Felicidades❤️!",
+      "¡Felicidades❤️!",
+      "¡Felicidades❤️!",
+    "Feliz cumple años Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Felicidades❤️!",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Happy bday❤️",
+      "Feliz cumple años Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Feliz cumple años Erik❤️",
+      "Felicidades Erik❤️",
+      "¡Happy Birthday❤️!",
+      "Felicidades Erik❤️",
+      "¡Happy Birthday❤️!",
+      "¡Felicidades❤️!",
+      "¡Happy Birthday❤️!",
+      "Happy bday❤️",
+      "Feliz 18❤️",
+      "¡Felicidades❤️!",
+      "¡Happy Birthday❤️!",
+      "¡Happy Birthday❤️!",
+      "Happy bday❤️",
+      "¡Felicidades❤️!",
+      "¡Felicidades❤️!",
+      "Felicidades Erik❤️",
+      "Felicidades Erik❤️",
+      "Felices 18❤️"
+    ];
+
+    function zonaAleatoria() {
+      const ancho = window.innerWidth;
+      const zona = Math.floor(Math.random() * 3); // 0: izquierda, 1: centro, 2: derecha
+
+      let min, max;
+      if (zona === 0) { // izquierda
+        min = 0;
+        max = ancho / 3;
+      } else if (zona === 1) { // centro
+        min = ancho / 3;
+        max = (ancho * 2) / 3;
+      } else { // derecha
+        min = (ancho * 2) / 3;
+        max = ancho;
+      }
+      return Math.random() * (max - min) + min;
+    }
+
+    function lanzarMensaje() {
+      const div = document.createElement("div");
+      div.className = "mensaje";
+      div.textContent = mensajes[Math.floor(Math.random() * mensajes.length)];
+      div.style.left = `${zonaAleatoria()}px`;
+
+      document.body.appendChild(div);
+      setTimeout(() => div.remove(), 2000);
+    }
+
+    function lanzarConfeti() {
+      for (let i = 0; i < 100; i++) {
+        const confeti = document.createElement("div");
+        confeti.className = "confeti";
+        confeti.style.left = Math.random() * window.innerWidth + "px";
+        confeti.style.top = "-20px";
+        confeti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        confeti.style.animationDuration = (2 + Math.random() * 2) + "s";
+        document.body.appendChild(confeti);
+        setTimeout(() => confeti.remove(), 4000);
+      }
+    }
+
+    // Confeti al inicio
+    lanzarConfeti();
+
+    // Mensajes infinitos cada 100ms
+    setInterval(lanzarMensaje, 100);
+  </script>
+
+</body>
+</html>
